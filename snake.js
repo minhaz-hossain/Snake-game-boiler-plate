@@ -11,7 +11,8 @@ let headImage;
 let score;
 
 var count = 150;
-var value = 0;
+var value = -1;
+var over = 1;
 
 
 let apple = {
@@ -107,10 +108,12 @@ function doDrawing() {
         drawApple();
         drawSnake();
     } else {
+        over++;
         gameOver();
-        value=0;
+        value=-1;
         snake.size=3;
         count=150;
+        DELAY=140;
     }
     //inGame=true;
 }
@@ -118,8 +121,8 @@ function doDrawing() {
 function createInitialSnakePosition() {
 
     for (let z = 0; z < snake.size; z++) {
-        snake.x[z] = 50 - z * CELL_SIZE;
-        snake.y[z] = 50;
+        snake.x[z] = ((over*5) %30)*10;
+        snake.y[z] = ((over*5) %30)*10;;
     }
 }   
 
