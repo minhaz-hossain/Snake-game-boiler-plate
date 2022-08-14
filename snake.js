@@ -34,7 +34,7 @@ let upDirection = false;
 let downDirection = false;
 let inGame = true;    
 
-const DELAY = 140;
+DELAY = 140;
 const MAX_RAND = 29;
 const CELL_SIZE = 10;
 const CANVAS_WIDTH = 300; 
@@ -183,6 +183,7 @@ function checkCollision() {
     if (snake.x[0] < 0) {
       inGame = false;
     }
+
 }
 
 onkeydown = function(e) {
@@ -249,6 +250,7 @@ function eatApple(){
         value++;
         document.getElementById("score").innerHTML = value;
         snake.size++;
+        DELAY=DELAY-5;
     }
 }
 
