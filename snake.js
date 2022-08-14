@@ -45,7 +45,18 @@ const RIGHT_KEY = 39;
 const UP_KEY = 38;
 const DOWN_KEY = 40;
 
+function again(){
+    if(inGame==false){
+        inGame=true;
+        leftDirection = false;
+        rightDirection = true;
+        upDirection = false;
+        downDirection = false;
+        createInitialSnakePosition();
+        init();
+    }
 
+}
 
 
 function init() {
@@ -72,6 +83,8 @@ function init() {
     createInitialSnakePosition();
     locateApple();
     setTimeout("gameCycle()", DELAY);
+
+
 }    
 
 function loadImages() {   
@@ -95,7 +108,11 @@ function doDrawing() {
         drawSnake();
     } else {
         gameOver();
+        value=0;
+        snake.size=3;
+        count=150;
     }
+    //inGame=true;
 }
 
 function createInitialSnakePosition() {
@@ -231,6 +248,7 @@ function eatApple(){
         locateApple();
         value++;
         document.getElementById("score").innerHTML = value;
+        snake.size++;
     }
 }
 
